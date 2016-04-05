@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+
+deneme
+<div class="col-xs-10">
+    <div class="ilanlar col-xs-12">
+
+    </div>
+</div>
+<script>
+	$( document ).ready(function() {
+        $.ajax({
+            url: "https://chest.space/bot/api/",
+            dataType: 'json',
+            xhrFields: {
+                // The 'xhrFields' property sets additional fields on the XMLHttpRequest.
+                // This can be used to set the 'withCredentials' property.
+                // Set the value to 'true' if you'd like to pass cookies to the server.
+                // If this is enabled, your server must respond with the header
+                //'Access-Control-Allow-Credentials: true'.
+                withCredentials: true
+            },
+            success: function (yanit) {
+
+                console.log("test");
+                $.each(yanit, function (index, value) {
+
+                    $('.ilanlar').append('<div class="row">'+value.id_degeri+'<br>'+value.url+'<br>'+value.baslik+'<br>'+value.fiyat+'<br>'+value.lokasyon+'<br>'+value.aciklama+'</div>');
+
+                });
+
+            }
+        });
+    });
+
+</script>
+</body>
+</html>
